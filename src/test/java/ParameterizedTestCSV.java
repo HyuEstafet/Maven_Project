@@ -1,4 +1,5 @@
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.Assert.assertEquals;
@@ -20,6 +21,12 @@ public class ParameterizedTestCSV {
         assertTrue(true);
     }
 
+    @ParameterizedTest
+    @CsvFileSource (resources = "/CSVforParameterizedTesting - Sheet1.csv", numLinesToSkip = 1)
+    public void toUpperCaseMethodTest ( String input1, String expected1) {
+        String actualValueWeekDay = input1.toUpperCase();
+        assertEquals(expected1, actualValueWeekDay );
+    }
 
 
 }
